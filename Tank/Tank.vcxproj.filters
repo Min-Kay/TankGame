@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{feb46282-bd57-4029-a3df-b7f10029ca27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game">
+      <UniqueIdentifier>{9e6de2c2-e527-4375-b631-ec13bec7eacb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\01.Menu">
+      <UniqueIdentifier>{72f46985-466b-4350-b44e-b8abd2fe5e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage">
+      <UniqueIdentifier>{fd81e7cf-fc9a-4e27-b8a1-fdaab96d17cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\01.StageOne">
+      <UniqueIdentifier>{443165c9-7bb6-45f0-b1d7-84bba95cfe64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\02.StageTwo">
+      <UniqueIdentifier>{a462ee63-0854-4fef-885e-5d897e2c37e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\03.StageThree">
+      <UniqueIdentifier>{6b1e9e82-f227-46dc-b750-6c8dd431f4d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\04.StageFour">
+      <UniqueIdentifier>{a67d7781-9289-4e49-8c6d-45e90a2080cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj">
+      <UniqueIdentifier>{c7e8101a-b79a-4321-9fbe-1f57038bb146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\01.Player">
+      <UniqueIdentifier>{361569b1-8e6f-4918-97c6-0abdced2d0b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster">
+      <UniqueIdentifier>{b56049e0-02f4-43ec-9b4a-c63885e61441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\03.Missile">
+      <UniqueIdentifier>{9ae7912b-9150-4277-9988-e663aab3e208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.WinApi">
+      <UniqueIdentifier>{2c5d55d6-554e-45da-b225-9151f81ce0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\AbstractFactory">
+      <UniqueIdentifier>{593e3571-1498-42b9-b16c-0b846f2c5742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03.Manager">
+      <UniqueIdentifier>{cc2a901e-6061-4f90-9661-32b3fa60343f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99.Default">
+      <UniqueIdentifier>{747dc005-2306-41b3-a258-ef46e4dfc891}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03.Manager\01.CollisionMgr">
+      <UniqueIdentifier>{f697eb46-44ca-427f-99cb-1d43916cc603}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일\99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일\99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApi.h">
+      <Filter>소스 파일\00.WinApi</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactory.h">
+      <Filter>헤더 파일\AbstractFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>소스 파일\01.Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>소스 파일\01.Game\01.Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>소스 파일\01.Game\02.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="StageOne.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHeader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>소스 파일\03.Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMgr.h">
+      <Filter>소스 파일\03.Manager\01.CollisionMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>소스 파일\02.Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\02.Obj\01.Player</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일\99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="WinApi.cpp">
+      <Filter>소스 파일\00.WinApi</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>소스 파일\01.Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>소스 파일\01.Game\01.Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\01.Game\02.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="StageOne.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>소스 파일\03.Manager\01.CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>소스 파일\02.Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\02.Obj\01.Player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tank.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Tank.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
