@@ -1,35 +1,24 @@
-﻿  StageOne.cpp
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\stageone.cpp(55): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(38): warning C4244: '인수': 'float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(34): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CMonster>::Create(float,float,float,float)'을(를) 컴파일하고 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\stageone.cpp(55): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CMonster>::Create(float,float,float,float)'에 대한 참조를 확인하십시오.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\stageone.cpp(55): note: 컴파일 중인 클래스 템플릿 인스턴스화 'CAbstractFactory<CMonster>'에 대한 참조를 확인하십시오.
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(27): warning C4244: '인수': 'const float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(23): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CMonster>::Create(T *)'을(를) 컴파일하고 있습니다.
+﻿  Stage.cpp
+  StageOne.cpp
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\StageOne.cpp(57,60): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\StageOne.cpp(57,55): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(38,24): warning C4244: '인수': 'float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(34): message : 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CMonster>::Create(float,float,float,float)'을(를) 컴파일하는 중입니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\StageOne.cpp(57): message : 컴파일되는 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CMonster>::Create(float,float,float,float)'에 대한 참조를 확인하세요.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\StageOne.cpp(57): message : 컴파일되는 클래스 템플릿 인스턴스화 'CAbstractFactory<CMonster>'에 대한 참조를 확인하세요.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(38,18): warning C4244: '인수': 'float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(27,94): warning C4244: '인수': 'const float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(23): message : 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CMonster>::Create(T *)'을(를) 컴파일하는 중입니다.
           with
           [
               T=CMonster
           ]
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\stageone.cpp(112): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CMonster>::Create(T *)'에 대한 참조를 확인하십시오.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\StageOne.cpp(121): message : 컴파일되는 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CMonster>::Create(T *)'에 대한 참조를 확인하세요.
           with
           [
               T=CMonster
           ]
-  Obj.cpp
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\AbstractFactory.h(27,52): warning C4244: '인수': 'const float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  WinApi.cpp
   코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Player.cpp
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(58): warning C4244: '인수': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(55): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CBullet>::Create(POINT,OBJECT::POINT_TYPE,float)'을(를) 컴파일하고 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\player.cpp(180): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CBullet>::Create(POINT,OBJECT::POINT_TYPE,float)'에 대한 참조를 확인하십시오.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\player.cpp(180): note: 컴파일 중인 클래스 템플릿 인스턴스화 'CAbstractFactory<CBullet>'에 대한 참조를 확인하십시오.
-  Menu.cpp
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\menu.cpp(24): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(46): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(44): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CClick>::Create(float,float,float,float,int)'을(를) 컴파일하고 있습니다.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\menu.cpp(24): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CClick>::Create(float,float,float,float,int)'에 대한 참조를 확인하십시오.
-  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\menu.cpp(24): note: 컴파일 중인 클래스 템플릿 인스턴스화 'CAbstractFactory<CClick>'에 대한 참조를 확인하십시오.
-c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\abstractfactory.h(48): warning C4244: '인수': 'float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  Tank.vcxproj -> C:\Users\Administrator.JUSIN\Desktop\TankGame ver 1.3\TankGame ver 1.4\Debug\Tank.exe
-  Tank.vcxproj -> C:\Users\Administrator.JUSIN\Desktop\TankGame ver 1.3\TankGame ver 1.4\Debug\Tank.pdb (Full PDB)
+  Tank.vcxproj -> C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Debug\Tank.exe

@@ -17,7 +17,6 @@ public:
 	virtual void Init_Patterns() PURE; // m_Patterns 리스트 초기화 (Stage)
 	virtual void Release_Patterns(); // m_Patterns 리스트 해제 (Stage)
 
-
 public:
 	virtual void Init_ObjList()PURE; // m_ObjList 리스트 초기화
 	void Update_ObjList(); // m_ObjList 리스트 업데이트 
@@ -53,6 +52,6 @@ protected:
 	OBJLIST m_ObjList[OBJID::END]; // OBJID에 해당하는 소환체 관리
 	list <OBJLIST> m_Patterns; // 패턴에 따른 몬스터 배열 호출 순서 관리
 	GAMERESULT::RESULT m_Result = GAMERESULT::RESULT::NONE; //결과값에 따른 처리
-	bool		isClear;
+	bool		isClear; // 모든 패턴을 성공적으로 수행 했는지에 대한 결과값
 };
 

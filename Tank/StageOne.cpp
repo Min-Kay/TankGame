@@ -19,9 +19,12 @@ void StageOne::Initialize()
 	Init_ObjList(); 
 	Init_Patterns();
 
+
+	m_Spawn = false;
 	// 디버깅 전용
+#ifdef _DEBUG
 	m_CoolTime = GetTickCount();
-	
+#endif
 }
 
 void StageOne::Update()
@@ -33,7 +36,6 @@ void StageOne::Update()
 
 #ifdef _DEBUG
 	// 디버깅 모드
-
 	if (m_CoolTime + 1000 < GetTickCount()) // 연속 입력 방지
 	{
 		if (GetAsyncKeyState(VK_F1) & 0x8000) // 승리
@@ -65,6 +67,9 @@ void StageOne::Late_Update()
 {
 	LateUpdate_ObjList();
 	
+	if (m_ObjList[OBJID::MONSTER].empty())
+		Set_Clear(true);
+
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE],m_ObjList[OBJID::MONSTER]);
 
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::PLAYER], m_ObjList[OBJID::MONSTER]);
@@ -103,6 +108,10 @@ void StageOne::Init_Patterns()
 void StageOne::Pattern()
 {
 	// 패턴 실행
+
+	if (m_Spawn)
+		return;
+
 	auto& iter_begin = m_Patterns.begin();
 	for (; iter_begin != m_Patterns.end();)
 	{
@@ -115,7 +124,8 @@ void StageOne::Pattern()
 		++iter_begin;
 	}
 
-	
+	m_Spawn = true;
+
 }
 
 void StageOne::Init_ObjList()

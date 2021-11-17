@@ -36,9 +36,10 @@ void Stage::Show_Win_Lose()
 {
 	DWORD		showTime = GetTickCount(); 
 	TCHAR		szShow[10] = L"";
-	RECT		m_BackgroundRect{0,0,WINCX,WINCY}, m_TextRect{ WINCX / 2  - WINCX / 16, WINCY / 2 - WINCY / 16, WINCX - (WINCX / 2), WINCY - (WINCY / 2)};
+	RECT		m_BackgroundRect{0,0,WINCX,WINCY},
+				m_TextRect{ WINCX / 2  - WINCX / 16, WINCY / 2 - WINCY / 16, WINCX - (WINCX / 2), WINCY - (WINCY / 2)};
 	HFONT		hFont, oldFont;
-	HBRUSH		brush;
+	HBRUSH		brush = NULL;
 
 	hFont = CreateFont(50,0,0,0,0,0,0,0,HANGEUL_CHARSET,0,0,0,VARIABLE_PITCH|FF_ROMAN,TEXT("±¼¸²Ã¼"));
 	oldFont = (HFONT)SelectObject(m_DC,hFont);
@@ -47,12 +48,12 @@ void Stage::Show_Win_Lose()
 	{
 	case GAMERESULT::WIN:
 		SetTextColor(m_DC, RGB(0, 255, 0));
-		brush = CreateSolidBrush(RGB(50, 151, 151));
+		brush = CreateSolidBrush(RGB(0, 150, 0));
 		swprintf_s(szShow, L"½Â¸®");
 		break;
 	case GAMERESULT::LOSE:
 		SetTextColor(m_DC, RGB(255, 0, 0));
-		brush = CreateSolidBrush(RGB(50, 151, 151));
+		brush = CreateSolidBrush(RGB(150, 0, 0));
 		swprintf_s(szShow, L"ÆÐ¹è");
 		break;
 	default:
@@ -96,7 +97,7 @@ void Stage::Update_ObjList()
 		for ( ;iter_begin != m_ObjList[i].end() ; )
 		{
 			(*iter_begin)->Update();
-			if (true == (*iter_begin)->Get_Dead())
+			if ((*iter_begin)->Get_Dead())
 			{
 				SAFE_DELETE((*iter_begin));
 				iter_begin = m_ObjList[i].erase(iter_begin);

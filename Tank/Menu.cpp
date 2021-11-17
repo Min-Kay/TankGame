@@ -30,10 +30,9 @@ void Menu::Initialize()
 	m_TitleRect.left = 100;
 	m_TitleRect.right = 700;
 
-
 	m_EscapeRect.top = 500;
 	m_EscapeRect.bottom = 550;
-	m_EscapeRect.left = 650;
+	m_EscapeRect.left = 600;
 	m_EscapeRect.right = 700;
 
 	hFont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("±º∏≤√º"));
@@ -71,14 +70,19 @@ void Menu::Render()
 		i->Render(m_DC);
 	}
 
+	hFont = CreateFont(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("±º∏≤√º"));
+	oldFont = (HFONT)SelectObject(m_DC, hFont);
 
 	Rectangle(m_DC, m_TitleRect.left, m_TitleRect.top, m_TitleRect.right, m_TitleRect.bottom);
 	swprintf_s(m_SzTitle, L"≈ ≈© ∞‘¿”");	
-	TextOut(m_DC, m_TitleRect.left + 250, m_TitleRect.top + 40 , m_SzTitle, lstrlen(m_SzTitle));
+	TextOut(m_DC, m_TitleRect.left + 175, m_TitleRect.top + 20 , m_SzTitle, lstrlen(m_SzTitle));
+
+	hFont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("±º∏≤√º"));
+	oldFont = (HFONT)SelectObject(m_DC, hFont);
 
 	Rectangle(m_DC, m_EscapeRect.left, m_EscapeRect.top, m_EscapeRect.right, m_EscapeRect.bottom);
 	swprintf_s(m_SzEscape, L"≥™∞°±‚");
-	TextOut(m_DC, m_EscapeRect.left, m_EscapeRect.top + 15, m_SzEscape, lstrlen(m_SzEscape));
+	TextOut(m_DC, m_EscapeRect.left + 15, m_EscapeRect.top + 15, m_SzEscape, lstrlen(m_SzEscape));
 
 	Render_Cursor();
 }
