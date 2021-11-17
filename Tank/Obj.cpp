@@ -3,15 +3,15 @@
 
 
 CObj::CObj()
-	:	m_Type(OBJECT::OBJECT_TYPE_END)
-	,	m_Dir(OBJECT::DIRECTION_END)
-	,	m_Radian(NULL)
-	,	m_Speed(NULL)
-	,	m_Vaild(FALSE)
+	: m_Type(OBJECT::OBJECT_TYPE_END)
+	, m_Dir(OBJECT::DIRECTION_END)
+	, m_Radian(NULL)
+	, m_Speed(NULL)
+	, m_Vaild(FALSE)
 {
 	ZeroMemory(&m_Body, sizeof(m_Body));
 	ZeroMemory(&m_Info, sizeof(m_Info));
-	ZeroMemory(&m_Point, sizeof(POINT)* OBJECT::POINT_TYPE_END);
+	ZeroMemory(&m_Point, sizeof(POINT)*OBJECT::POINT_TYPE_END);
 }
 
 
@@ -28,25 +28,32 @@ void CObj::Update_Rect(void)
 	m_Body.bottom = long(m_Info.Y + (m_Info.Height *0.5f));
 }
 
-void CObj::Set_Size(const long _cx, const long _cy)
+float CObj::Update_Radian(void)
 {
-	m_Info.Width = _cx;
-	m_Info.Height = _cy;
+	return m_Radian = atan2(m_Point[OBJECT::POINT_TYPE_MOUSE].y - m_Info.Y, m_Point[OBJECT::POINT_TYPE_MOUSE].x - m_Info.X);
 }
 
-void CObj::Set_m_Point(const POINT & _src, OBJECT::POINT_TYPE _ptype)
+
+void CObj::Set_Size(const long _cx, const long _cy)
+{
+	m_Info.Width = float(_cx);
+	m_Info.Height = float(_cy);
+}
+
+void CObj::Set_Point(const POINT & _src, OBJECT::POINT_TYPE _ptype)
 {
 	m_Point[_ptype] = _src;
 }
 
-bool CObj::Get_Dead()
+bool CObj::Screen_Body_Check()
 {
-	return m_Dead;
-}
-
-void CObj::Set_Dead()
-{
-	 m_Dead = true;
+	if (WINCX <= m_Body.right ||
+		WINCY <= m_Body.bottom ||
+		0 >= m_Body.left ||
+		0 >= m_Body.right)
+		return true;
+	
+	return false;
 }
 
 void CObj::Move_Pos(float _x, float _y)

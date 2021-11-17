@@ -64,6 +64,9 @@
     <Filter Include="소스 파일\03.Manager\01.CollisionMgr">
       <UniqueIdentifier>{f697eb46-44ca-427f-99cb-1d43916cc603}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Obj\04.Click">
+      <UniqueIdentifier>{0685a40f-8b1d-404f-b0d5-0b4edd5ca368}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -123,6 +126,15 @@
     <ClInclude Include="Player.h">
       <Filter>소스 파일\02.Obj\01.Player</Filter>
     </ClInclude>
+    <ClInclude Include="Click.h">
+      <Filter>소스 파일\02.Obj\04.Click</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\02.Obj\03.Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>소스 파일\02.Obj\02.Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -151,6 +163,15 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일\02.Obj\01.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Click.cpp">
+      <Filter>소스 파일\02.Obj\04.Click</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\02.Obj\03.Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

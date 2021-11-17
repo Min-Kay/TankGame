@@ -1,0 +1,39 @@
+﻿  stdafx.cpp
+c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\Define.h(53): warning C4005: 'PLAYER_SPEED': 매크로 재정의
+  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\Define.h(37): note: 'PLAYER_SPEED'의 이전 정의를 참조하십시오.
+  Bullet.cpp
+Bullet.cpp(27): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Click.cpp
+Click.cpp(36): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CollisionMgr.cpp
+  Game.cpp
+Game.cpp(99): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Game.cpp(100): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Game.cpp(105): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Game.cpp(106): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Game.cpp(108): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+Game.cpp(109): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Menu.cpp
+Menu.cpp(24): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\AbstractFactory.h(35): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\AbstractFactory.h(33): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CClick>::Create(float,float,float,float,int)'을(를) 컴파일하고 있습니다.
+  Menu.cpp(24): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CClick>::Create(float,float,float,float,int)'에 대한 참조를 확인하십시오.
+  Menu.cpp(24): note: 컴파일 중인 클래스 템플릿 인스턴스화 'CAbstractFactory<CClick>'에 대한 참조를 확인하십시오.
+c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\AbstractFactory.h(37): warning C4244: '인수': 'float'에서 'const long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Monster.cpp
+  Obj.cpp
+  Player.cpp
+c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\AbstractFactory.h(47): warning C4244: '인수': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  c:\users\administrator.jusin\desktop\tankgame ver 1.3\tankgame ver 1.4\tank\AbstractFactory.h(44): note: 클래스 템플릿 멤버 함수 'CObj *CAbstractFactory<CBullet>::Create(POINT,OBJECT::POINT_TYPE,float)'을(를) 컴파일하고 있습니다.
+  Player.cpp(179): note: 컴파일 중인 함수 템플릿 인스턴스화 'CObj *CAbstractFactory<CBullet>::Create(POINT,OBJECT::POINT_TYPE,float)'에 대한 참조를 확인하십시오.
+  Player.cpp(179): note: 컴파일 중인 클래스 템플릿 인스턴스화 'CAbstractFactory<CBullet>'에 대한 참조를 확인하십시오.
+  Stage.cpp
+  StageOne.cpp
+  WinApi.cpp
+  코드를 생성하고 있습니다.
+  5 of 396 functions ( 1.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  Tank.vcxproj -> C:\Users\Administrator.JUSIN\Desktop\TankGame ver 1.3\TankGame ver 1.4\Release\Tank.exe
+  Tank.vcxproj -> C:\Users\Administrator.JUSIN\Desktop\TankGame ver 1.3\TankGame ver 1.4\Release\Tank.pdb (Full PDB)

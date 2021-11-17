@@ -42,17 +42,20 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TANK));
 
-	int selection = 0;
-	Game* game[5];
+	int selection = 0; // 게임 선택
+	vector<Game*> game; // 게임 관리 벡터
 
-	game[0] = new Menu;
-	game[1] = new StageOne;
+	game.push_back(new Menu); 
+	game.push_back(new StageOne);
+	game.push_back(new StageOne);
+	game.push_back(new StageOne);
+	game.push_back(new StageOne);
 
     MSG msg;
 	msg.message = WM_NULL;
 
 	DWORD time = GetTickCount();
-
+	
     // 기본 메시지 루프입니다.
     while (WM_QUIT != msg.message)
     {
@@ -68,7 +71,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		{
 			if (time + 10 <= GetTickCount())
 			{
-				if (!game[selection]->Get_Loaded())
+				if (!game[selection]->Get_Loaded()) // 1회성 로드를 위한 if문
 				{
 					game[selection]->Initialize();
 				}
@@ -82,6 +85,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			}
 		}
     }
+	
+	for_each(game.begin(),game.end(),CDeleteObj()); // 게임 벡터 해제
 
     return (int) msg.wParam;
 }
@@ -124,10 +129,16 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+	hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+
+
+	RECT window{ 0,0,WINCX,WINCY };
+
+	AdjustWindowRect(&window, WS_OVERLAPPEDWINDOW, FALSE);
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, WINCX, WINCY, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, window.right - window.left, window.bottom - window.top, nullptr, nullptr, hInstance, nullptr);
+
 
    if (!hWnd)
    {
@@ -156,7 +167,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-
 	case WM_KEYDOWN:
 	{
 	}

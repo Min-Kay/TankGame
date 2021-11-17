@@ -3,8 +3,6 @@
 
 #include "Obj.h"
 
-using namespace std;
-
 class CPlayer : public CObj
 {
 public:
@@ -20,17 +18,19 @@ public:
 	virtual void Release(void) override;
 
 private:
-	void		Update_Radian(void);			// 타겟의 좌표로 각도를 반환합니다.
-	void		Update_Aim(void);
 	void		Key_Input(void);
-	CObj*		Create_Bullet(void);
+	void		Create_Bullet(void);
+
 
 public:
-	const POINT Get_Focus();
-	void		Set_Bullet(list<CObj*>*  _pBullet);
+	const POINT		Get_Focus();
+	void			Set_Bullet(list<CObj*>*  _pBullet);
+	void			Update_Aim(int _cannonsize);			// 타겟의 좌표로 각도를 반환합니다.
+
 
 private:
-	list<CObj*>* m_Bullet;
-
+	list<CObj*>*	m_Bullet;
+	DWORD			m_CoolTime;
+	DWORD			m_InitTime; 
 };
 #endif

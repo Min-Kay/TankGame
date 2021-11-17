@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Bullet.h"
+#include "AbstractFactory.h"
 
 CPlayer::CPlayer()
-	:	m_Bullet(nullptr)
+	: m_Bullet(nullptr)
 {
 }
 
@@ -13,7 +15,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize(void)
 {
-	m_Info.X= RESPONE_X;
+	m_Info.X = RESPONE_X;
 	m_Info.Y = RESPONE_Y;
 	m_Info.Width = PLAYER_WIDTH;
 	m_Info.Height = PLAYER_HEIGHT;
@@ -21,24 +23,35 @@ void CPlayer::Initialize(void)
 	m_Info.Att = PLAYER_ATTACK;
 
 	m_Type = OBJECT::OBJECT_TYPE_PLAYER;
-	m_Point[OBJECT::POINT_TYPE_MOUSE] = { long(RESPONE_X),long(RESPONE_Y) };
-	m_Point[OBJECT::POINT_TYPE_TARGET] = { long(RESPONE_X),long(RESPONE_Y) };
+	m_Point[OBJECT::POINT_TYPE_MOUSE] = { (long)RESPONE_X,(long)RESPONE_Y };
+	m_Point[OBJECT::POINT_TYPE_TARGET] = { (long)RESPONE_X,(long)RESPONE_Y };
 	m_Dir = OBJECT::DIRECTION_TOP;
 	m_Speed = PLAYER_SPEED;
 	m_Vaild = true;
 
 	Update_Rect();
 	Update_Radian();
-	Update_Aim();
+	Update_Aim(PLAYER_CANNON_LEN);
+	
+	m_CoolTime = GetTickCount();
+	m_InitTime = 500;
 }
 
 int CPlayer::Update(void)
 {
+	if (true == m_Dead)
+		return OBJ_DEAD;
+
 	GetCursorPos(&m_Point[OBJECT::POINT_TYPE_MOUSE]);
-	ScreenToClient(HWND(), &m_Point[OBJECT::POINT_TYPE_MOUSE]);
+	ScreenToClient(g_hWnd, &m_Point[OBJECT::POINT_TYPE_MOUSE]);
 	ShowCursor(false);
 
-	return 0;
+	Key_Input();
+	Update_Rect();
+	Update_Radian();
+	Update_Aim(PLAYER_CANNON_LEN);
+
+	return OBJ_NOEVENT;
 }
 
 void CPlayer::Late_Update(void)
@@ -48,85 +61,128 @@ void CPlayer::Late_Update(void)
 
 void CPlayer::Render(HDC _hDC)
 {
+	Rectangle(_hDC, 0, 0, 800, 600);
 	Ellipse(_hDC, m_Body.left, m_Body.top, m_Body.right, m_Body.bottom);
 	MoveToEx(_hDC, (int)m_Info.X, (int)m_Info.Y, NULL);
-	LineTo(_hDC, m_Point[OBJECT::POINT_TYPE_MOUSE].x, m_Point[OBJECT::POINT_TYPE_MOUSE].y);
+	LineTo(_hDC, m_Point[OBJECT::POINT_TYPE_AIM].x, m_Point[OBJECT::POINT_TYPE_AIM].y);
 }
 
 void CPlayer::Release(void)
 {
 }
 
-void CPlayer::Update_Radian()
+void CPlayer::Key_Input(void)
 {
-	m_Radian = atan2(m_Point[OBJECT::POINT_TYPE_MOUSE].y-m_Info.Y, m_Point[OBJECT::POINT_TYPE_MOUSE].x - m_Info.X);
+	if ((GetAsyncKeyState(KEY_ATTACK) & 0x8000) && (m_CoolTime + m_InitTime < GetTickCount()))
+	{
+		Create_Bullet();
+		m_CoolTime = GetTickCount();
+	}
+
+	if (GetAsyncKeyState(KEY_DOWN) & 0x8000)
+	{
+		if (GetAsyncKeyState(KEY_LEFT) & 0x8000)
+		{
+			if (WINCY > m_Body.bottom && 0 < m_Body.left)
+			{
+				m_Info.X -= m_Speed / sqrtf(2);
+				m_Info.Y += m_Speed / sqrtf(2);
+			}
+			else if (WINCY > m_Body.bottom)
+			{
+				m_Info.Y += m_Speed / sqrtf(2);
+			}
+			else if (0 < m_Body.left)
+			{
+				m_Info.X -= m_Speed / sqrtf(2);
+			}
+		}
+		else if (GetAsyncKeyState(KEY_RIGHT) & 0x8000)
+		{
+			if (WINCY > m_Body.bottom && WINCX > m_Body.right)
+			{
+				m_Info.X += m_Speed / sqrtf(2);
+				m_Info.Y += m_Speed / sqrtf(2);
+			}
+			else if (WINCY > m_Body.bottom)
+			{
+				m_Info.Y += m_Speed / sqrtf(2);
+			}
+			else if (WINCX > m_Body.right)
+			{
+				m_Info.X += m_Speed / sqrtf(2);
+			}
+		}
+		else
+		{
+			if (WINCY > m_Body.bottom)
+				m_Info.Y += m_Speed;
+		}
+	}
+
+	if (GetAsyncKeyState(KEY_UP) & 0x8000)
+	{
+		if (GetAsyncKeyState(KEY_LEFT) & 0x8000)
+		{
+			if (0 < m_Body.top && 0 < m_Body.left)
+			{
+				m_Info.X -= m_Speed / sqrtf(2);
+				m_Info.Y -= m_Speed / sqrtf(2);
+			}
+			else if (0 < m_Body.top)
+			{
+				m_Info.Y -= m_Speed / sqrtf(2);
+			}
+			else if (0 < m_Body.left)
+			{
+				m_Info.X -= m_Speed / sqrtf(2);
+			}
+		}
+		else if (GetAsyncKeyState(KEY_RIGHT) & 0x8000)
+		{
+			if (0 < m_Body.top && WINCX > m_Body.right)
+			{
+				m_Info.X += m_Speed / sqrtf(2);
+				m_Info.Y -= m_Speed / sqrtf(2);
+			}
+			else if (0 < m_Body.top)
+			{
+				m_Info.Y -= m_Speed / sqrtf(2);
+			}
+			else if (WINCX > m_Body.right)
+			{
+				m_Info.X += m_Speed / sqrtf(2);
+			}
+		}
+		else
+		{
+			if (0 < m_Body.top)
+				m_Info.Y -= m_Speed;
+		}
+	}
+
+	if (!(GetKeyState(KEY_UP) & 0x8000) && !(GetKeyState(KEY_DOWN) & 0x8000))
+	{
+		if ((GetAsyncKeyState(KEY_LEFT) & 0x8000) && 0 < m_Body.left )
+			m_Info.X -= m_Speed;
+
+		if ((GetAsyncKeyState(KEY_RIGHT) & 0x8000) && WINCX > m_Body.right)
+			m_Info.X += m_Speed;
+	}
+
 }
 
-void CPlayer::Update_Aim(void)
-{
-	m_Point[OBJECT::POINT_TYPE_AIM].x = m_Info.X + cos(m_Radian);
-	m_Point[OBJECT::POINT_TYPE_AIM].y = m_Info.Y + sin(m_Radian);
-}
-
-//void CPlayer::Key_Input(void)
-//{
-//	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
-//	{
-//		m_Bullet->push_back(Create_Bullet());
-//	}
-//
-//	if (GetAsyncKeyState(VK_A) & 0x8000)
-//	{
-//		if (INGAME_LEFT < m_Info.X)
-//			m_Info.X -= m_Speed;
-//	}
-//
-//	if (GetAsyncKeyState(VK_D) & 0x8000)
-//	{
-//		if (INGAME_RIGHT > m_Info.X)
-//			m_Info.X += m_Speed;
-//	}
-//
-//	if (GetAsyncKeyState(VK_W) & 0x8000)
-//	{
-//		if (INGAME_TOP < m_Info.Y)
-//			m_Info.Y -= m_Speed;
-//	}
-//
-//	if (GetAsyncKeyState(VK_S) & 0x8000)
-//	{
-//		if (INGAME_BOTTOM > m_Info.Y)
-//			m_Info.Y += m_Speed;
-//	}
-//
-//	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-//	{
-//		m_Direction = DIRECTION::LEFT;
-//	}
-//	if (GetAsyncKeyState(VK_UP) & 0x8000)
-//	{
-//		m_Direction = DIRECTION::TOP;
-//	}
-//
-//	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-//	{
-//		m_Direction = DIRECTION::RIGHT;
-//	}
-//
-//	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-//	{
-//		m_Direction = DIRECTION::BOTTOM;
-//	}
-//}
-
-CObj * CPlayer::Create_Bullet(void)
+void CPlayer::Create_Bullet(void)
 {
 	if (m_Bullet)
 	{
 		//총알 생성 필요
-		return nullptr;
+		m_Bullet->push_back(CAbstractFactory<CBullet>::Create(
+			m_Point[OBJECT::POINT_TYPE_AIM],
+			OBJECT::POINT_TYPE_AIM,
+			m_Radian
+		));
 	}
-	return nullptr;
 }
 
 const POINT CPlayer::Get_Focus()
@@ -137,4 +193,10 @@ const POINT CPlayer::Get_Focus()
 void CPlayer::Set_Bullet(list<CObj*>* _pBullet)
 {
 	m_Bullet = _pBullet;
+}
+
+void CPlayer::Update_Aim(int _cannonsize)
+{
+	m_Point[OBJECT::POINT_TYPE_AIM].x = long(m_Info.X + _cannonsize*cos(m_Radian));
+	m_Point[OBJECT::POINT_TYPE_AIM].y = long(m_Info.Y + _cannonsize*sin(m_Radian));
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CollisionMgr.h"
 #include "Obj.h"
+#include "Click.h"
 
 CCollisionMgr::CCollisionMgr()
 {
@@ -11,18 +12,32 @@ CCollisionMgr::~CCollisionMgr()
 {
 }
 
-void CCollisionMgr::Collision_Mouse(RECT& mouse, list<CObj*> _Src)
+int CCollisionMgr::Collision_Mouse(RECT& mouse, list<CObj*> _Src)
 {
 	RECT	rc{};
 
 	for (auto& Src : _Src)
 	{
-		if (IntersectRect(&rc, &mouse, &(Src->Get_Body())))
+		if ((GetAsyncKeyState(VK_LBUTTON) & 0x8000) && IntersectRect(&rc, &mouse, &(Src->Get_Body())))
 		{
-
+				return static_cast<CClick*>(Src)->Get_Selection();
 		}
 	}
+	return 0;
 }
+
+bool CCollisionMgr::Collision_Mouse_Box(RECT& mouse, RECT& box)
+{
+	RECT	rc{};
+
+	if ((GetAsyncKeyState(VK_LBUTTON) & 0x8000) && IntersectRect(&rc, &mouse, &box))
+	{
+		return true;
+	}
+
+	return false;
+}
+
 
 void CCollisionMgr::Collision_Rect(list<CObj*> _Dest, list<CObj*> _Src)
 {
@@ -32,10 +47,10 @@ void CCollisionMgr::Collision_Rect(list<CObj*> _Dest, list<CObj*> _Src)
 	{
 		for (auto& Src : _Src)
 		{
-			if (IntersectRect(&rc, &(Dest->Get_Body()), &(Src->Get_Body())))
+			if ( !Dest->Get_Dead() && IntersectRect(&rc, &(Dest->Get_Body()), &(Src->Get_Body())))
 			{
-				Dest->Set_Dead();
-				Src->Set_Dead();
+				Dest->Set_Dead(true);
+				Src->Set_Dead(true);
 			}
 		}
 	}
@@ -52,8 +67,8 @@ void CCollisionMgr::Collision_Sphere(list<CObj*> _Dest, list<CObj*> _Src)
 		{
 			if (Check_Sphere(Dest, Src))			
 			{
-				Dest->Set_Dead();
-				Src->Set_Dead();
+				Dest->Set_Dead(true);
+				Src->Set_Dead(true);
 			}
 		}
 	}
