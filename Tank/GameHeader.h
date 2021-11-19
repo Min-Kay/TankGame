@@ -6,3 +6,5 @@
 #include "Menu.h"
 #include "Stage.h"
 #include "StageOne.h"
+#include "StageThree.h"
+#include "StageFour.h"

@@ -3,11 +3,10 @@
 
 
 CObj::CObj()
-	: m_Type(OBJECT::OBJECT_TYPE_END)
+	: m_Type(OBJID::END)
 	, m_Dir(OBJECT::DIRECTION_END)
 	, m_Radian(NULL)
 	, m_Speed(NULL)
-	, m_Vaild(FALSE)
 {
 	ZeroMemory(&m_Body, sizeof(m_Body));
 	ZeroMemory(&m_Info, sizeof(m_Info));
@@ -28,9 +27,17 @@ void CObj::Update_Rect(void)
 	m_Body.bottom = long(m_Info.Y + (m_Info.Height *0.5f));
 }
 
-float CObj::Update_Radian(void)
+float CObj::Update_Radian(POINT _focus)
 {
-	return m_Radian = atan2(m_Point[OBJECT::POINT_TYPE_MOUSE].y - m_Info.Y, m_Point[OBJECT::POINT_TYPE_MOUSE].x - m_Info.X);
+	return m_Radian = atan2(_focus.y - m_Info.Y, _focus.x - m_Info.X);
+}
+
+void CObj::Rotation_Radian(int _speed)
+{
+	m_Radian += _speed*(PI / 180);
+
+	if (m_Radian > 2 * PI)
+		m_Radian -= 2 * PI;
 }
 
 
@@ -45,15 +52,20 @@ void CObj::Set_Point(const POINT & _src, OBJECT::POINT_TYPE _ptype)
 	m_Point[_ptype] = _src;
 }
 
+bool CObj::Check_Type(CObj * _opponent)
+{
+	return m_Type == _opponent->Get_Type() ? true : false;
+}
+
+void CObj::Copy_Data(CObj * _target) // 오브젝트 간 데이터 공유를 위함
+{
+	Set_Size(_target->Get_Info().Width, _target->Get_Info().Height);
+	Move_Pos(_target->Get_Info().X, _target->Get_Info().Y); 
+}
+
 bool CObj::Screen_Body_Check()
 {
-	if (WINCX <= m_Body.right ||
-		WINCY <= m_Body.bottom ||
-		0 >= m_Body.left ||
-		0 >= m_Body.right)
-		return true;
-	
-	return false;
+	return (WINCX <= m_Body.right || WINCY <= m_Body.bottom || 0 >= m_Body.top || 0 >= m_Body.left) ? true : false;
 }
 
 void CObj::Move_Pos(float _x, float _y)

@@ -22,19 +22,19 @@
     <ProjectGuid>{C742F16C-2B87-41C2-9AA6-FE634D19A899}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Tank</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -150,20 +150,29 @@
     <ClInclude Include="Click.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Def_St3_Monster.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="Enum_St3.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameHeader.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="JustAttack.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Satellite.h" />
+    <ClInclude Include="St3_MonCommon00.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="StageFour.h" />
     <ClInclude Include="StageOne.h" />
+    <ClInclude Include="StageThree.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="SunBullet.h" />
+    <ClInclude Include="Sunflower.h" />
     <ClInclude Include="WinApi.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -172,18 +181,25 @@
     <ClCompile Include="Click.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="JustAttack.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Satellite.cpp" />
+    <ClCompile Include="St3_MonCommon00.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StageFour.cpp" />
     <ClCompile Include="StageOne.cpp" />
+    <ClCompile Include="StageThree.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SunBullet.cpp" />
+    <ClCompile Include="Sunflower.cpp" />
     <ClCompile Include="WinApi.cpp" />
   </ItemGroup>
   <ItemGroup>

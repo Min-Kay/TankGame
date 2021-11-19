@@ -24,6 +24,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -42,20 +46,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TANK));
 
-	int selection = 0; // 게임 선택
-	vector<Game*> game; // 게임 관리 벡터
-
-	game.push_back(new Menu); 
-	game.push_back(new StageOne);
-	game.push_back(new StageOne);
-	game.push_back(new StageOne);
-	game.push_back(new StageOne);
+	GAME::GAMEID selection = GAME::MENU; // 게임 선택
+	Game* game = nullptr; // 게임 관리 포인터
 
     MSG msg;
 	msg.message = WM_NULL;
 
 	DWORD time = GetTickCount();
-	
+
     // 기본 메시지 루프입니다.
     while (WM_QUIT != msg.message)
     {
@@ -70,23 +68,48 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		else
 		{
 			if (time + 10 <= GetTickCount())
-			{
-				if (!game[selection]->Get_Loaded()) // 1회성 로드를 위한 if문
+			{	
+				if (!game)
 				{
-					game[selection]->Initialize();
+					switch (selection)
+					{
+					case GAME::MENU:
+						game = new Menu;
+						break;
+					case GAME::STAGE_ONE:
+						game = new StageOne;
+						break;
+					case GAME::STAGE_TWO:
+						game = new StageOne;
+						break;
+					case GAME::STAGE_THREE:
+						game = new StageThree;
+						break;
+					case GAME::STAGE_FOUR:
+						game = new StageFour;
+						break;
+					}
+
+					game->Initialize();
 				}
+				else
+				{
+					game->Update();
+					game->Late_Update();
+					game->Render();
 
-				game[selection]->Update();
-				game[selection]->Late_Update();
-				game[selection]->Render();
-
-				selection = game[selection]->Get_Selection();
+					if (selection != game->Get_Selection()) 
+					{
+						selection = game->Get_Selection();
+						SAFE_DELETE(game);
+					}
+				}
 				time = GetTickCount();
 			}
 		}
     }
 	
-	for_each(game.begin(),game.end(),CDeleteObj()); // 게임 벡터 해제
+	SAFE_DELETE(game);
 
     return (int) msg.wParam;
 }

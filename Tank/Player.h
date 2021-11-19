@@ -3,6 +3,8 @@
 
 #include "Obj.h"
 
+class CSatellite;
+
 class CPlayer : public CObj
 {
 public:
@@ -13,7 +15,7 @@ public:
 public:
 	virtual void Initialize(void) override;
 	virtual int	 Update(void) override;
-	virtual void Late_Update(void) override;
+	virtual void Late_Update(OBJLIST* _objlist) override;
 	virtual void Render(HDC _hDC) override;
 	virtual void Release(void) override;
 
@@ -25,11 +27,15 @@ private:
 public:
 	const POINT		Get_Focus();
 	void			Set_Bullet(list<CObj*>*  _pBullet);
+	void			Set_Satellite(list<CObj*>*  _Satellite) { m_Satellite = _Satellite; }
+	void			Add_Satellite(CObj* _satellite) { m_Satellite->push_back(_satellite); }
 	void			Update_Aim(int _cannonsize);			// 타겟의 좌표로 각도를 반환합니다.
 
+protected:
+	OBJLIST*		m_Bullet;
+	OBJLIST*		m_Satellite;
 
 private:
-	list<CObj*>*	m_Bullet;
 	DWORD			m_CoolTime;
 	DWORD			m_InitTime; 
 };

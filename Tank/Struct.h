@@ -8,10 +8,6 @@ typedef struct tagInfo
 	float		Width; // 가로 사이즈
 	float		Height; // 세로 사이즈
 
-	int		Att;
-	int		Max_Hp;
-	int		Hp;
-
 }INFO;
 
 class CDeleteObj

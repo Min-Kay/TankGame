@@ -10,17 +10,17 @@ public:
 public:
 	virtual void		Initialize(void);
 	virtual int			Update(void);
-	virtual void		Late_Update(void);
+	virtual void		Late_Update(OBJLIST* _objlist);
 	virtual void		Render(HDC _hDC);
 	virtual void		Release(void);
 
 public:
-	void Set_Selection(int i); 
+	void Set_Selection(GAME::GAMEID i);
 public:
-	int Get_Selection();
+	GAME::GAMEID Get_Selection();
 
 private:
-	int m_Selection;
+	GAME::GAMEID m_Selection;
 	TCHAR	szStageNum[10];
 };
 

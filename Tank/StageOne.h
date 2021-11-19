@@ -25,7 +25,6 @@ public:
 	virtual void Init_ObjList(); // m_ObjList 리스트 초기화
 
 private:
-	DWORD	m_CoolTime;
 	bool	m_Spawn;
 };
 

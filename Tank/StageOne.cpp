@@ -10,21 +10,15 @@ StageOne::StageOne()
 
 StageOne::~StageOne()
 {
-	Release();
 }
 
 void StageOne::Initialize()
 {
-	Init_DefaultSetting(1);
+	Init_DefaultSetting(GAME::STAGE_ONE);
 	Init_ObjList(); 
 	Init_Patterns();
 
-
 	m_Spawn = false;
-	// 디버깅 전용
-#ifdef _DEBUG
-	m_CoolTime = GetTickCount();
-#endif
 }
 
 void StageOne::Update()
@@ -33,32 +27,7 @@ void StageOne::Update()
 
 	Update_ObjList(); 
 
-
-#ifdef _DEBUG
-	// 디버깅 모드
-	if (m_CoolTime + 1000 < GetTickCount()) // 연속 입력 방지
-	{
-		if (GetAsyncKeyState(VK_F1) & 0x8000) // 승리
-		{
-			Set_Clear(true);
-			m_CoolTime = GetTickCount();
-		}
-
-		if (GetAsyncKeyState(VK_F2) & 0x8000) // 패배
-		{
-			m_ObjList[OBJID::PLAYER].front()->Set_Dead(true);
-			m_CoolTime = GetTickCount();
-		}
-
-		if (GetAsyncKeyState(VK_F3) & 0x8000) // 몬스터 소환
-		{
-			int posX = rand() % (WINCX / 2);
-			int posY = rand() % (WINCY / 2);
-			Add_MonsterList(CAbstractFactory<CMonster>::Create(posX,posY,20,20));
-			m_CoolTime = GetTickCount();
-		}
-	}
-#endif
+	Cheat_Mode();
 
 	Update_Cursor();
 }
@@ -70,9 +39,7 @@ void StageOne::Late_Update()
 	if (m_ObjList[OBJID::MONSTER].empty())
 		Set_Clear(true);
 
-	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE],m_ObjList[OBJID::MONSTER]);
-
-	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::PLAYER], m_ObjList[OBJID::MONSTER]);
+	Check_Collision();
 
 	Check_GameState();
 
@@ -97,8 +64,12 @@ void StageOne::Release()
 
 void StageOne::Init_Patterns()
 {
-	// 패턴 초기화 - 입장 시에만 호출해야함
-	OBJLIST patternA;
+	// 패턴 초기화 - Initialize 시에 작성
+	// 패턴 제약은 따로 없습니다.
+	// 패턴 추가는 vector<CObj*>로 만들고 몬스터를 생성 및 할당 한 후 해당 패턴을 m_Patterns에 push_back 하시면 됩니다.
+	// 패턴 수행 시 m_Patterns를 2차원 배열 형태로 호출해 몬스터를 소환하시면 됩니다.
+
+	OBJVEC  patternA;
 	patternA.push_back(CAbstractFactory<CMonster>::Create(100, 100, 20, 20));
 
 	m_Patterns.push_back(patternA);
@@ -108,21 +79,16 @@ void StageOne::Init_Patterns()
 void StageOne::Pattern()
 {
 	// 패턴 실행
+	// 패턴 구성은 자유롭게 설정하되 
+	// 모든 패턴을 수행했다면 Set_Clear()를 통해 isClear를 true로 변경해 승리를 설정하시면 됩니다.
+	// 플레이어 패배는 Check_GameState() 에서 자동 처리 합니다.
+	// 허나 부가적인 패배 요소(기믹 수행 등)를 설정하시려면 Set_Result() 를 통해 Enum값을 NONE을 제외한 다른 값으로 변경하시면 
+	// Goto_Menu()가 m_Result의 값을 통해 게임이 종료되도록 처리합니다.
 
 	if (m_Spawn)
 		return;
 
-	auto& iter_begin = m_Patterns.begin();
-	for (; iter_begin != m_Patterns.end();)
-	{
-		auto& iter_beginPattern = (*iter_begin).begin();
-		for (; iter_beginPattern != (*iter_begin).end();)
-		{
-				Add_MonsterList(CAbstractFactory<CMonster>::Create(static_cast<CMonster*>(*iter_beginPattern)));
-				++iter_beginPattern;
-		}
-		++iter_begin;
-	}
+	Add_MonsterList(CAbstractFactory<CMonster>::Create(static_cast<CMonster*>(m_Patterns[0][0])));
 
 	m_Spawn = true;
 
@@ -130,8 +96,11 @@ void StageOne::Pattern()
 
 void StageOne::Init_ObjList()
 {
+	// 오브젝트 리스트 초기화 설정 - Initialize에 작성
+	// 자유롭게 m_ObjList에 추가하고자 하는 CObj 추가하시면 됩니다.
+
 	m_ObjList[OBJID::PLAYER].push_back(CAbstractFactory<CPlayer>::Create());
-	dynamic_cast<CPlayer*>(m_ObjList[OBJID::PLAYER].front())->Set_Bullet(&(m_ObjList[OBJID::MISSILE]));
+	static_cast<CPlayer*>(m_ObjList[OBJID::PLAYER].front())->Set_Bullet(&(m_ObjList[OBJID::MISSILE]));
 }
 
 

@@ -2,7 +2,7 @@
 #include "Game.h"
 
 Game::Game()
-	:m_Selection(0)
+	:m_Selection(GAME::MENU)
 {
 }
 
@@ -30,35 +30,29 @@ void Game::Release()
 {
 }
 
-bool Game::Get_Loaded()
+void Game::Set_Selection(GAME::GAMEID _id) // 스테이지 혹은 메뉴 설정 -> 게임 종료 시 Release_Game에서 메뉴 자동 호출 하므로 Init_DefaultSetting으로만 설정하세요
 {
-	return m_isLoaded;
+	m_Selection = _id; 
 }
 
-void Game::Set_Selection(int i)
+void Game::BackGround() // 배경 화면 출력 - Render 첫줄에 작성
 {
-	m_Selection = i; 
+	Rectangle(m_DC, 0, 0, WINCX, WINCY); // 800 x 600 크기의 배경 출력 
 }
 
-void Game::BackGround()
-{
-	Rectangle(m_DC, 0, 0, WINCX, WINCY); // 800 x 600 크기의 화면 출력
-}
-
-void Game::Init_DefaultSetting(int _gameNum)
+void Game::Init_DefaultSetting(GAME::GAMEID _id) // Initialize 첫 줄에 작성하고 자기 스테이지 Enum을 매개변수로 사용하세요
 {
 	m_DC = GetDC(g_hWnd); // 화면 받아오기
-	Set_Loaded(true); // 로딩 완료
 	Init_Cursor(); // 커서 초기화
-	Set_Selection(_gameNum); // stage 번호대로 로드 설정
+	Set_Selection(_id); // stage 번호대로 로드 설정
 }
 
-void Game::Init_Cursor()
+void Game::Init_Cursor() // 마우스 초기화 / Initialize 에 작성
 {
 	ShowCursor(false); // 커서 끄기
 }
 
-void Game::Update_Cursor()
+void Game::Update_Cursor() // 마우스 업데이트 / Update 에 작성
 {
 	GetCursorPos(&m_Point);
 	ScreenToClient(g_hWnd,&m_Point);
@@ -67,7 +61,7 @@ void Game::Update_Cursor()
 	
 }
 
-void Game::Render_Cursor()
+void Game::Render_Cursor() // 마우스 렌더 / Render 마지막 줄에 작성
 {
 	// 커서 렌더링
 
@@ -88,11 +82,7 @@ void Game::Render_Cursor()
 	LineTo(m_DC, (int)m_Info.X - 12, (int)m_Info.Y);
 }
 
-void Game::Release_Cursor()
-{
-}
-
-void Game::Update_CursorRect()
+void Game::Update_CursorRect() 
 {
 	// 커서 위치 기반 커서 RECT 설정
 

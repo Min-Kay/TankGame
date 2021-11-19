@@ -2,9 +2,11 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "AbstractFactory.h"
+#include "Satellite.h"
 
 CPlayer::CPlayer()
 	: m_Bullet(nullptr)
+	, m_Satellite(nullptr)
 {
 }
 
@@ -19,18 +21,15 @@ void CPlayer::Initialize(void)
 	m_Info.Y = RESPONE_Y;
 	m_Info.Width = PLAYER_WIDTH;
 	m_Info.Height = PLAYER_HEIGHT;
-	m_Info.Hp = PLAYER_HP;
-	m_Info.Att = PLAYER_ATTACK;
 
-	m_Type = OBJECT::OBJECT_TYPE_PLAYER;
+	m_Type = OBJID::PLAYER;
 	m_Point[OBJECT::POINT_TYPE_MOUSE] = { (long)RESPONE_X,(long)RESPONE_Y };
 	m_Point[OBJECT::POINT_TYPE_TARGET] = { (long)RESPONE_X,(long)RESPONE_Y };
 	m_Dir = OBJECT::DIRECTION_TOP;
 	m_Speed = PLAYER_SPEED;
-	m_Vaild = true;
 
 	Update_Rect();
-	Update_Radian();
+	Update_Radian(m_Point[OBJECT::POINT_TYPE_MOUSE]);
 	Update_Aim(PLAYER_CANNON_LEN);
 	
 	m_CoolTime = GetTickCount();
@@ -39,22 +38,24 @@ void CPlayer::Initialize(void)
 
 int CPlayer::Update(void)
 {
-	if (true == m_Dead)
+	if (m_Dead)
 		return OBJ_DEAD;
 
 	GetCursorPos(&m_Point[OBJECT::POINT_TYPE_MOUSE]);
 	ScreenToClient(g_hWnd, &m_Point[OBJECT::POINT_TYPE_MOUSE]);
 	ShowCursor(false);
 
+
 	Key_Input();
 	Update_Rect();
-	Update_Radian();
+	Update_Radian(m_Point[OBJECT::POINT_TYPE_MOUSE]);
 	Update_Aim(PLAYER_CANNON_LEN);
+
 
 	return OBJ_NOEVENT;
 }
 
-void CPlayer::Late_Update(void)
+void CPlayer::Late_Update(OBJLIST* _objlist)
 {
 
 }
@@ -180,7 +181,8 @@ void CPlayer::Create_Bullet(void)
 		m_Bullet->push_back(CAbstractFactory<CBullet>::Create(
 			m_Point[OBJECT::POINT_TYPE_AIM],
 			OBJECT::POINT_TYPE_AIM,
-			m_Radian
+			m_Radian,
+			m_Type
 		));
 	}
 }
@@ -190,7 +192,7 @@ const POINT CPlayer::Get_Focus()
 	return POINT();
 }
 
-void CPlayer::Set_Bullet(list<CObj*>* _pBullet)
+void CPlayer::Set_Bullet(OBJLIST* _pBullet)
 {
 	m_Bullet = _pBullet;
 }

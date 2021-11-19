@@ -5,7 +5,6 @@
 CClick::CClick()
 	:szStageNum(L"")
 {
-	
 }
 
 
@@ -15,7 +14,7 @@ CClick::~CClick()
 
 void CClick::Initialize(void)
 {
-	Set_Selection(int(m_Speed));
+	Set_Selection(GAME::GAMEID(int(m_Speed))); // CObj에 추가 변수를 선언하지 않고 speed를 이용해 selection을 변경함
 	Update_Rect();
 }
 
@@ -24,7 +23,7 @@ int CClick::Update(void)
 	return OBJ_NOEVENT;
 }
 
-void CClick::Late_Update(void)
+void CClick::Late_Update(OBJLIST* _objlist)
 {
 }
 
@@ -40,12 +39,12 @@ void CClick::Release(void)
 {
 }
 
-void CClick::Set_Selection(int i)
+void CClick::Set_Selection(GAME::GAMEID i)
 {
 	m_Selection = i;
 }
 
-int CClick::Get_Selection()
+GAME::GAMEID CClick::Get_Selection()
 {
 	return m_Selection;
 }

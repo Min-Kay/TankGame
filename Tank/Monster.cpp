@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Monster.h"
+#include "AbstractFactory.h"
+#include "Bullet.h"
 
-
-CMonster::CMonster()
+CMonster::CMonster()	
 {
 }
 
@@ -13,21 +14,17 @@ CMonster::~CMonster()
 
 void CMonster::Initialize(void)
 {
-	m_Info.X = 200.f;
-	m_Info.Y = 200.f;
-
-	m_Info.Width	= 30.f;
-	m_Info.Height	= 30.f;
+	m_Info.Width	= 50.f;
+	m_Info.Height	= 50.f;
 	m_Speed			=  5.f;
+	m_Type			= OBJID::MONSTER;
+	m_Cooltime		= GetTickCount();
 }
 
 int CMonster::Update(void)
 {
-
-	if (true == m_Dead)
+	if (m_Dead)
 		return OBJ_DEAD;
-
-	//m_Info.X += m_Speed;
 
 	Update_Rect();
 
@@ -35,10 +32,9 @@ int CMonster::Update(void)
 
 }
 
-void CMonster::Late_Update(void)
+void CMonster::Late_Update(OBJLIST* _objlist)
 {
-	if ((100 >= m_Body.left) || (WINCX - 100 <= m_Body.right))
-		m_Speed *= -1.f;
+
 }
 
 void CMonster::Render(HDC _hDC)
@@ -49,3 +45,4 @@ void CMonster::Render(HDC _hDC)
 void CMonster::Release(void)
 {
 }
+

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Def_St3_Monster.h"
 /// WINAPI
 
 #define		WINCX	800
@@ -17,6 +17,9 @@ extern		HWND	g_hWnd;
 #define RESPONE_X 400.f
 #define RESPONE_Y 500.f
 
+#define	PI		3.141592f
+
+
 /// KeySetting
 
 #define KEY_UP 'W'
@@ -29,6 +32,7 @@ extern		HWND	g_hWnd;
 /// Game
 
 #define OBJLIST list<CObj*>
+#define OBJVEC	vector<CObj*>
 
 ///PLAYER
 
@@ -63,7 +67,15 @@ extern		HWND	g_hWnd;
 
 #define BULLET_WIDTH 5
 #define BULLET_HEIGHT 5
-#define BULLET_SPEED 10.f
+#define BULLET_SPEED 5.f
 
 #define BULLET_HP 1
 #define BULLET_ATTACK 5
+
+/// Satellite
+
+#define SATELLITE_SPEED 5
+
+
+
+

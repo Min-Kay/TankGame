@@ -67,6 +67,24 @@
     <Filter Include="소스 파일\02.Obj\04.Click">
       <UniqueIdentifier>{0685a40f-8b1d-404f-b0d5-0b4edd5ca368}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St3_Mon">
+      <UniqueIdentifier>{a2d756d5-93ef-4869-ade5-f195738463e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\05.Satellite">
+      <UniqueIdentifier>{8ed58a2d-5a6d-4710-aadc-a4ae00f685d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon">
+      <UniqueIdentifier>{810fb04e-58d6-4fb9-b959-ced9f64bf457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\01. JustAttack">
+      <UniqueIdentifier>{0f690407-0cfb-4db6-8569-dcfdc3cd80bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower">
+      <UniqueIdentifier>{08229912-0c2f-4c83-9e35-f0f366945d95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet">
+      <UniqueIdentifier>{5bbffbcd-4ae8-4909-8163-a534823aa0b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -135,6 +153,33 @@
     <ClInclude Include="Monster.h">
       <Filter>소스 파일\02.Obj\02.Monster</Filter>
     </ClInclude>
+    <ClInclude Include="StageThree.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_MonCommon00.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St3_Mon</Filter>
+    </ClInclude>
+    <ClInclude Include="Def_St3_Monster.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St3_Mon</Filter>
+    </ClInclude>
+    <ClInclude Include="Satellite.h">
+      <Filter>소스 파일\02.Obj\05.Satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="StageFour.h">
+      <Filter>소스 파일\01.Game\02.Stage\04.StageFour</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum_St3.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St3_Mon</Filter>
+    </ClInclude>
+    <ClInclude Include="JustAttack.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\01. JustAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Sunflower.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower</Filter>
+    </ClInclude>
+    <ClInclude Include="SunBullet.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -172,6 +217,27 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>소스 파일\02.Obj\02.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="StageThree.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_MonCommon00.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St3_Mon</Filter>
+    </ClCompile>
+    <ClCompile Include="Satellite.cpp">
+      <Filter>소스 파일\02.Obj\05.Satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="StageFour.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\04.StageFour</Filter>
+    </ClCompile>
+    <ClCompile Include="JustAttack.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\01. JustAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Sunflower.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower</Filter>
+    </ClCompile>
+    <ClCompile Include="SunBullet.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

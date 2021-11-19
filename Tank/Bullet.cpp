@@ -14,22 +14,24 @@ CBullet::~CBullet()
 
 void CBullet::Initialize(void)
 {
-	m_Vaild = true;
 	m_Info.Width = BULLET_WIDTH;
 	m_Info.Height = BULLET_HEIGHT;
 	m_Speed = BULLET_SPEED;
-	m_Type = OBJECT::OBJECT_TYPE_BULLET;
+	m_Type = OBJID::MISSILE;
 	Update_Rect();
 }
 
 int CBullet::Update(void)
 {
+	if (m_Dead)
+		return OBJ_DEAD; 
+
 	Update_Locate(m_Speed);
 	Update_Rect();
-	return 0;
+	return OBJ_NOEVENT;
 }
 
-void CBullet::Late_Update(void)
+void CBullet::Late_Update(OBJLIST* _objlist)
 {
 	if (Screen_Body_Check())
 		Set_Dead(true);
@@ -46,6 +48,6 @@ void CBullet::Release(void)
 
 void CBullet::Update_Locate(int _speed)
 {
-	m_Info.X += _speed*cos(m_Radian);
-	m_Info.Y += _speed*sin(m_Radian);
+	m_Info.X += _speed*cosf(m_Radian);
+	m_Info.Y += _speed*sinf(m_Radian);
 }

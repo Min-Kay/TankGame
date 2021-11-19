@@ -7,6 +7,8 @@ namespace OBJID
 		PLAYER,
 		MONSTER,
 		MISSILE,
+		SATELLITE,
+		FOLLOWMONSTER,
 		END
 	};
 }
@@ -24,14 +26,6 @@ namespace GAMERESULT
 
 
 namespace OBJECT {
-	enum OBJECT_TYPE
-	{
-		OBJECT_TYPE_PLAYER,
-		OBJECT_TYPE_BULLET,
-		OBJECT_TYPE_MONSTER,
-		OBJECT_TYPE_END
-	};
-
 	enum POINT_TYPE
 	{
 		POINT_TYPE_MOUSE,
@@ -51,4 +45,16 @@ namespace OBJECT {
 	};
 }
 
+
+namespace GAME {
+	enum GAMEID
+	{
+		MENU,
+		STAGE_ONE,
+		STAGE_TWO,
+		STAGE_THREE,
+		STAGE_FOUR,
+		END
+	};
+}
 

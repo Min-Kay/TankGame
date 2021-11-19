@@ -26,9 +26,9 @@ public:
 	TCHAR		m_SzEscape[10]; // 나가기
 	RECT		m_EscapeRect; // 나가기 박스
 
-	bool		isEscape;
+	bool		isEscape; // 나가기 bool 변수 
 
-	HFONT		hFont, oldFont;
+	HFONT		TitleFont, MenuFont, oldFont; // 폰트 설정
 
 	
 };

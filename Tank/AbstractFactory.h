@@ -19,13 +19,11 @@ public:
 		return pObj;
 	}
 
-	static CObj*		Create(T* t)
+	static CObj*		Create(T* t) // 패턴 활용을 위한 데이터 복사 용도
 	{
 		CObj*		pObj = new T;
 		pObj->Initialize();
-		pObj->Move_Pos(dynamic_cast<CObj*>(t)->Get_Info().X, dynamic_cast<CObj*>(t)->Get_Info().Y);
-		pObj->Set_Size(dynamic_cast<CObj*>(t)->Get_Info().Width, dynamic_cast<CObj*>(t)->Get_Info().Height);
-
+		pObj->Copy_Data(static_cast<CObj*>(t));
 		return pObj;
 	}
 
@@ -35,31 +33,68 @@ public:
 		CObj* pObj = new T;
 		pObj->Initialize();
 		pObj->Move_Pos(_fX, _fY);
-		pObj->Set_Size(_fCX, _fCY);
+		pObj->Set_Size(long(_fCX), long(_fCY));
 
 		return pObj;
 	}
 
-	static CObj*		Create(float _fX, float _fY, float _fCX, float _fCY, int _Selection)
+	static CObj*		Create(float _fX, float _fY, float _fCX, float _fCY, float _rad)
 	{
 		CObj* pObj = new T;
-		pObj->Set_Speed(_Selection);
+		pObj->Initialize();
 		pObj->Move_Pos(_fX, _fY);
-		pObj->Set_Size(_fCX, _fCY);
-		pObj->Initialize();
-
-		return pObj;
-	}
-
-	static CObj*		Create(POINT _aim, OBJECT::POINT_TYPE _ptype, float _rad)
-	{
-		CObj*		pObj = new T;
-		pObj->Initialize();
-		pObj->Move_Pos(long(_aim.x), long(_aim.y));
+		pObj->Set_Size(long(_fCX), long(_fCY));
 		pObj->Set_Radian(_rad);
 
 		return pObj;
 	}
+
+	static CObj*		Create(float _fX, float _fY, float _fCX, float _fCY, GAME::GAMEID _Selection) // Click용
+	{
+		CObj* pObj = new T;
+		pObj->Set_Speed(int(_Selection));
+		pObj->Move_Pos(_fX, _fY);
+		pObj->Set_Size(long(_fCX), long(_fCY));
+		pObj->Initialize();
+
+		return pObj;
+	}
+
+	static CObj*		Create(POINT _aim, OBJECT::POINT_TYPE _ptype, float _rad) // 투사체 용
+	{
+		CObj*		pObj = new T;
+		pObj->Initialize();
+		pObj->Move_Pos(float(_aim.x), float(_aim.y));
+		pObj->Set_Radian(_rad);
+
+		return pObj;
+	}
+
+
+	static CObj*		Create(POINT _aim, OBJECT::POINT_TYPE _ptype, float _rad, OBJID::ID _motherType) // 투사체 생성자의 타입을 가져오기 위함
+	{
+		CObj*		pObj = new T;
+		pObj->Initialize();
+		pObj->Move_Pos(float(_aim.x), float(_aim.y));
+		pObj->Set_Radian(_rad);
+		pObj->Set_Type(_motherType);
+
+		return pObj;
+	}
+
+	static CObj*		Create(POINT _aim, float _rad, OBJID::ID _motherType) // 투사체에게 입력된 좌표값을 통한 생성 및 각도, 모객체의 타입으로 설정
+	{
+		CObj*		pObj = new T;
+		pObj->Initialize();
+		pObj->Move_Pos(float(_aim.x), float(_aim.y));
+		pObj->Set_Radian(_rad);
+		pObj->Set_Type(_motherType);
+		pObj->Update_Rect(); // 생성 시점이 Late_Update 라 Late_Update 때 갱신된 정보를 토대로 Update_Rect가 실행되어있지않아 삭제될 수 있어 한번더 갱신
+
+		return pObj;
+	}
+
+
 
 };
 
