@@ -52,6 +52,21 @@ void CObj::Set_Point(const POINT & _src, OBJECT::POINT_TYPE _ptype)
 	m_Point[_ptype] = _src;
 }
 
+void CObj::Add_PosX(float _fX)
+{
+	m_Info.X += _fX;
+}
+
+void CObj::Add_PosY(float _fY)
+{
+	m_Info.Y += _fY;
+}
+
+void CObj::Add_Speed(float _speed)
+{
+	m_Speed += _speed; 
+}
+
 bool CObj::Check_Type(CObj * _opponent)
 {
 	return m_Type == _opponent->Get_Type() ? true : false;

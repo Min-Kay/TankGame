@@ -22,19 +22,19 @@
     <ProjectGuid>{C742F16C-2B87-41C2-9AA6-FE634D19A899}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Tank</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="Ball.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Click.h" />
     <ClInclude Include="CollisionMgr.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="GameHeader.h" />
     <ClInclude Include="Include.h" />
     <ClInclude Include="JustAttack.h" />
+    <ClInclude Include="Dispenser.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monster.h" />
@@ -173,15 +175,18 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="SunBullet.h" />
     <ClInclude Include="Sunflower.h" />
+    <ClInclude Include="Wall.h" />
     <ClInclude Include="WinApi.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Click.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="JustAttack.cpp" />
+    <ClCompile Include="Dispenser.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
@@ -200,6 +205,7 @@
     </ClCompile>
     <ClCompile Include="SunBullet.cpp" />
     <ClCompile Include="Sunflower.cpp" />
+    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WinApi.cpp" />
   </ItemGroup>
   <ItemGroup>

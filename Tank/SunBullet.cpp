@@ -55,7 +55,6 @@ void CSunBullet::Late_Update(OBJLIST * _objlist)
 	if (!m_target)
 	{
 		Set_target(_objlist[OBJID::PLAYER].front());
-		
 		Update_Rect(); 
 	}
 

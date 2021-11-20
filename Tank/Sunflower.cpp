@@ -15,8 +15,9 @@ CSunflower::~CSunflower()
 void CSunflower::Initialize(void)
 {
 	m_CoolTime = GetTickCount();
-	
-
+	Set_Delay(1000);
+	Set_FinMoveDis(30.f);
+	Set_BulletCount(9);
 }
 
 int CSunflower::Update(void)

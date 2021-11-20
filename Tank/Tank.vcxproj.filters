@@ -85,6 +85,15 @@
     <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet">
       <UniqueIdentifier>{5bbffbcd-4ae8-4909-8163-a534823aa0b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser">
+      <UniqueIdentifier>{219631ce-6e32-4386-9c61-bf23e016a6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Wall">
+      <UniqueIdentifier>{b69a74a4-76da-44cc-9467-0a0bf5e379fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Ball">
+      <UniqueIdentifier>{f3d4b383-502b-4da5-af12-a906b1681e24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -180,6 +189,15 @@
     <ClInclude Include="SunBullet.h">
       <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Wall</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="Dispenser.h">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -238,6 +256,15 @@
     </ClCompile>
     <ClCompile Include="SunBullet.cpp">
       <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\02. SunFlower\SunBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Wall</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Ball</Filter>
+    </ClCompile>
+    <ClCompile Include="Dispenser.cpp">
+      <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

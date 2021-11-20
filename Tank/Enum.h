@@ -8,7 +8,7 @@ namespace OBJID
 		MONSTER,
 		MISSILE,
 		SATELLITE,
-		FOLLOWMONSTER,
+		OBSTACLE,
 		END
 	};
 }
@@ -54,6 +54,19 @@ namespace GAME {
 		STAGE_TWO,
 		STAGE_THREE,
 		STAGE_FOUR,
+		END
+	};
+}
+
+
+namespace MONSTER {
+	enum LEESIN
+	{
+		IDLE,
+		PUNCH,
+		BILLIARD,
+		GROGGY,
+		DEAD,
 		END
 	};
 }

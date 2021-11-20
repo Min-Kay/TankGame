@@ -4,8 +4,10 @@
 #include "Monster.h"
 #include "JustAttack.h"
 #include "Sunflower.h"
+#include "Dispenser.h"
 #include "AbstractFactory.h"
 #include "Manager.h"
+#include "Wall.h"
 
 
 StageFour::StageFour()
@@ -39,6 +41,10 @@ void StageFour::Update()
 void StageFour::Late_Update()
 {
 	LateUpdate_ObjList();
+
+
+	CCollisionMgr::Collision_Push(m_ObjList[OBJID::PLAYER], m_ObjList[OBJID::OBSTACLE]);
+	CCollisionMgr::Collision_Bounce(m_ObjList[OBJID::MISSILE],m_ObjList[OBJID::OBSTACLE]);
 
 	Check_Collision();
 
@@ -101,25 +107,14 @@ void StageFour::Init_Patterns()
 	patternB.push_back(CAbstractFactory<CSunflower>::Create(200, 55, 50, 50, 270 * PI / 180.f));
 	patternB[0]->Set_Speed(1.0f);
 
-	static_cast<CSunflower*>(patternB[0])->Set_Delay(1000);
-	static_cast<CSunflower*>(patternB[0])->Set_FinMoveDis(30.f);
-	static_cast<CSunflower*>(patternB[0])->Set_BulletCount(10);
-
 	patternB.push_back(CAbstractFactory<CSunflower>::Create(400, 55, 50, 50, 270 * PI / 180.f));
 	patternB[1]->Set_Speed(1.0f);
 
-	static_cast<CSunflower*>(patternB[1])->Set_Delay(1000);
-	static_cast<CSunflower*>(patternB[1])->Set_FinMoveDis(30.f);
-	static_cast<CSunflower*>(patternB[1])->Set_BulletCount(10);
-
 	patternB.push_back(CAbstractFactory<CSunflower>::Create(600, 55, 50, 50, 270 * PI / 180.f));
 	patternB[2]->Set_Speed(1.0f);
-	static_cast<CSunflower*>(patternB[2])->Set_Delay(1000);
-	static_cast<CSunflower*>(patternB[2])->Set_FinMoveDis(30.f);
-	static_cast<CSunflower*>(patternB[2])->Set_BulletCount(10);
 
 	patternC.reserve(1);
-	patternC.push_back(CAbstractFactory<CMonster>::Create(300, 300, 10, 10));
+	patternC.push_back(CAbstractFactory<CDispenser>::Create(100, 100, 10, 10));
 
 	m_Patterns.push_back(patternA);
 	m_Patterns.push_back(patternB);
@@ -131,9 +126,10 @@ void StageFour::Pattern()
 	DWORD tickCount = GetTickCount();
 	switch (selected_Pattern)
 	{
-	case 0:
+	case 2:
 		if (spawn_Timer + 3000 < tickCount)
 		{
+			return;
 			Add_MonsterList(CAbstractFactory<CJustAttack>::Create(static_cast<CJustAttack*>(m_Patterns[0][0])));
 			Add_MonsterList(CAbstractFactory<CJustAttack>::Create(static_cast<CJustAttack*>(m_Patterns[0][1])));
 			Add_MonsterList(CAbstractFactory<CJustAttack>::Create(static_cast<CJustAttack*>(m_Patterns[0][2])));
@@ -155,10 +151,10 @@ void StageFour::Pattern()
 			selected_Pattern = 3;
 		}
 		break;
-	case 2:
+	case 0:
 		if (spawn_Timer + 3000 < tickCount)
 		{
-			Add_MonsterList(CAbstractFactory<CMonster>::Create(static_cast<CMonster*>(m_Patterns[2][1])));
+			Add_MonsterList(CAbstractFactory<CDispenser>::Create(static_cast<CDispenser*>(m_Patterns[2][0])));
 			spawn_Timer = GetTickCount();
 			selected_Pattern = 3;
 		}
@@ -171,13 +167,13 @@ void StageFour::Pattern()
 			switch (play_Count)
 			{
 			case 1:
-				selected_Pattern = 0;
+				selected_Pattern = 2;
 				break;
 			case 2:
-				selected_Pattern = 1;
+				selected_Pattern = 3;
 				break;
 			case 3:
-				selected_Pattern = 2;
+				selected_Pattern = 4;
 				break;
 			case 4:
 				Set_Clear(true);

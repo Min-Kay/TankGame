@@ -47,7 +47,7 @@ void Stage::Show_Win_Lose() // 승패 출력 함수
 	TCHAR		szShow[10] = L"";
 	RECT		m_BackgroundRect{0,0,WINCX,WINCY}, m_TextRect{ WINCX / 2  - WINCX / 16, WINCY / 2 - WINCY / 16, WINCX - (WINCX / 2), WINCY - (WINCY / 2)};
 	HFONT		hFont, oldFont; // 폰트 설정
-	HBRUSH		brush; // 색 설정
+	HBRUSH		brush = NULL; // 색 설정
 
 	hFont = CreateFont(50,0,0,0,0,0,0,0,HANGEUL_CHARSET,0,0,0,VARIABLE_PITCH|FF_ROMAN,TEXT("굴림체")); // 폰트 제작
 	oldFont = (HFONT)SelectObject(m_DC,hFont); // 폰트 변경

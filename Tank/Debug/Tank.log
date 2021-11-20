@@ -1,3 +1,16 @@
-﻿  StageFour.cpp
-  Tank.vcxproj -> C:\Users\Administrator\Desktop\TankGame ver 2.1\Debug\Tank.exe
-  Tank.vcxproj -> C:\Users\Administrator\Desktop\TankGame ver 2.1\Debug\Tank.pdb (Full PDB)
+﻿  CollisionMgr.cpp
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(161,21): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(162,20): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(164,14): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(165,16): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(166,16): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(167,17): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(173,25): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(178,21): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(184,25): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(190,21): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(230,14): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(231,16): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(232,16): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\CollisionMgr.cpp(233,17): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Tank.vcxproj -> C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Debug\Tank.exe
