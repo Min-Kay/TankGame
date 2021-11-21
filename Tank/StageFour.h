@@ -26,7 +26,7 @@ public:
 
 
 private:
-	int selected_Pattern = 0;
+	int selected_Pattern = 1;
 	int play_Count = 0;
 	DWORD	spawn_Timer = GetTickCount(); 
 };

@@ -16,7 +16,7 @@ public:
 
 public:
 	virtual void		Copy_Data(CObj* _target);
-
+	virtual void		Set_Collision();
 public:
 	void				Move();
 	void				SunShine();
@@ -42,5 +42,6 @@ private:
 	int					currCount = 0;
 	DWORD				m_CoolTime;
 	DWORD				m_Delay;
+	int					m_Hp = 3;
 };
 

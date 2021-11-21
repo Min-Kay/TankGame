@@ -48,7 +48,10 @@ void CCollisionMgr::Collision_Rect(list<CObj*> _Dest, list<CObj*> _Src) // 오브�
 	{
 		for (auto& Src : _Src)
 		{
-			if (!Dest->Check_Type(Src) && IntersectRect(&rc, &(Dest->Get_Body()), &(Src->Get_Body()))) // 오브젝트의 타입을 비교해 서로 다르고 RECT가 충돌됐다고 판단되면 true
+			if (Dest == Src || Dest->Check_Type(Src))
+				continue;
+
+			if (IntersectRect(&rc, &(Dest->Get_Body()), &(Src->Get_Body()))) // 오브젝트의 타입을 비교해 서로 다르고 RECT가 충돌됐다고 판단되면 true
 			{
 				Dest->Set_Collision();
 				Src->Set_Collision();

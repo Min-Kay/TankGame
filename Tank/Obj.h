@@ -59,7 +59,7 @@ public: //데이터 관리 함수
 protected:
 	RECT						m_Body;
 	INFO						m_Info;
-	OBJID::ID					m_Type;
+	OBJID::ID					m_Type = OBJID::PLAYER;
 	POINT						m_Point[OBJECT::POINT_TYPE_END];
 	OBJECT::DIRECTION			m_Dir;
 	float						m_Radian;

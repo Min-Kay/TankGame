@@ -24,7 +24,7 @@ int CJustAttack::Update(void)
 	if (m_Dead)
 		return OBJ_DEAD;
 
-	MoveFoward();
+	MoveFoward(); 
 
 	Update_Rect();
 

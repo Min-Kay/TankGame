@@ -177,7 +177,6 @@ void CPlayer::Create_Bullet(void)
 {
 	if (m_Bullet)
 	{
-		//총알 생성 필요
 		m_Bullet->push_back(CAbstractFactory<CBullet>::Create(
 			m_Point[OBJECT::POINT_TYPE_AIM],
 			OBJECT::POINT_TYPE_AIM,

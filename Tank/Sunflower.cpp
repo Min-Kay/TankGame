@@ -24,7 +24,6 @@ int CSunflower::Update(void)
 {
 	if (m_Dead)
 	{
-		auto& iter = m_BulletList->begin();
 		for (auto& i : *m_BulletList)
 		{
 			if (static_cast<CSunBullet*>(i))
@@ -55,8 +54,9 @@ void CSunflower::Late_Update(OBJLIST * _objlist)
 		Update_Rect(); 
 	}
 
-	if (Screen_Body_Check())
+	if (Screen_Body_Check() || m_Hp <= 0)
 		Set_Dead(true);
+
 }
 
 void CSunflower::Render(HDC _hDC)
@@ -88,6 +88,11 @@ void CSunflower::Copy_Data(CObj* _target)
 	Set_BulletCount(static_cast<CSunflower*>(_target)->Get_BulletCount());
 	InitPos.x = m_Info.X;
 	InitPos.y = m_Info.Y;
+}
+
+void CSunflower::Set_Collision()
+{
+	--m_Hp;
 }
 
 void CSunflower::Move()

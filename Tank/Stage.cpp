@@ -29,8 +29,9 @@ void Stage::Check_Collision() // 게임 공통 충돌처리 - Late_Update에 작성
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::MONSTER]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::PLAYER], m_ObjList[OBJID::MONSTER]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::PLAYER]);
+	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::MISSILE]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::SATELLITE], m_ObjList[OBJID::MONSTER]);
-	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::SATELLITE], m_ObjList[OBJID::MISSILE]);
+	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::SATELLITE]);
 }
 
 void Stage::Check_GameState() // 게임 승패 처리 함수 

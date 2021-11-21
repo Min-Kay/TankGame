@@ -17,7 +17,6 @@ void CBullet::Initialize(void)
 	m_Info.Width = BULLET_WIDTH;
 	m_Info.Height = BULLET_HEIGHT;
 	m_Speed = BULLET_SPEED;
-	m_Type = OBJID::MISSILE;
 	Update_Rect();
 }
 

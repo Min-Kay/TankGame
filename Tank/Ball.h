@@ -12,10 +12,12 @@ public:
 	virtual void	Release(void) override;
 
 public:
-	void			Set_Angle();
+	void			Set_Window_Bounce();
 
 private:
-	float			m_Angle;
+	int				m_LifeTime;
+	DWORD			m_Tick; 
 
+	HGDIOBJ			ori = NULL;
 };
 

@@ -69,7 +69,10 @@ void CObj::Add_Speed(float _speed)
 
 bool CObj::Check_Type(CObj * _opponent)
 {
-	return m_Type == _opponent->Get_Type() ? true : false;
+	if (m_Type == _opponent->Get_Type())
+		return true;
+	else
+		return false;
 }
 
 void CObj::Copy_Data(CObj * _target) // 오브젝트 간 데이터 공유를 위함

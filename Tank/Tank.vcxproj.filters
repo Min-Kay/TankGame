@@ -94,6 +94,12 @@
     <Filter Include="소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser\Ball">
       <UniqueIdentifier>{f3d4b383-502b-4da5-af12-a906b1681e24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Obj\05.Satellite\St4">
+      <UniqueIdentifier>{1e77662e-db3c-477f-bed1-04ecbd316254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\05.Satellite\St4\Pet">
+      <UniqueIdentifier>{efc44668-8464-43a3-bbc4-d3b30a0270fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -198,6 +204,9 @@
     <ClInclude Include="Dispenser.h">
       <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser</Filter>
     </ClInclude>
+    <ClInclude Include="Pet.h">
+      <Filter>소스 파일\02.Obj\05.Satellite\St4\Pet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -265,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Dispenser.cpp">
       <Filter>소스 파일\02.Obj\02.Monster\St4_Mon\03. Dispenser</Filter>
+    </ClCompile>
+    <ClCompile Include="Pet.cpp">
+      <Filter>소스 파일\02.Obj\05.Satellite\St4\Pet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
