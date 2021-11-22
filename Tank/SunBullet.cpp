@@ -64,7 +64,11 @@ void CSunBullet::Late_Update(OBJLIST * _objlist)
 
 void CSunBullet::Render(HDC hDC)
 {
+	ori = SelectObject(hDC, GetStockObject(DC_BRUSH));
+	SetDCBrushColor(hDC, RGB(255, 255, 0));
 	Ellipse(hDC, m_Body.left,m_Body.top,m_Body.right,m_Body.bottom);
+	SelectObject(hDC,ori);
+	DeleteObject(ori);
 }
 
 void CSunBullet::Release(void)

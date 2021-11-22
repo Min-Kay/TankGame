@@ -22,13 +22,13 @@
     <ProjectGuid>{C742F16C-2B87-41C2-9AA6-FE634D19A899}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Tank</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -146,59 +146,110 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="AttackMonster.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="BossMonster.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Click.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Def_St3.h" />
     <ClInclude Include="Def_St3_Monster.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Enum_St3.h" />
+    <ClInclude Include="FollowMonster.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameHeader.h" />
+    <ClInclude Include="GuideBullet.h" />
     <ClInclude Include="Include.h" />
     <ClInclude Include="JustAttack.h" />
     <ClInclude Include="Dispenser.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterBullet.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Satellite.h" />
+    <ClInclude Include="SkillPlayer.h" />
+    <ClInclude Include="SrecwBullet.h" />
+    <ClInclude Include="St2_Mon_Lv1.h" />
+    <ClInclude Include="St2_Mon_Lv2.h" />
+    <ClInclude Include="St3_BossMonster.h" />
+    <ClInclude Include="St3_ChaseBullet.h" />
+    <ClInclude Include="St3_Chaser.h" />
+    <ClInclude Include="St3_CollisionMgr.h" />
+    <ClInclude Include="St3_DeathMotion.h" />
+    <ClInclude Include="St3_Drone.h" />
+    <ClInclude Include="St3_FireBullet.h" />
+    <ClInclude Include="St3_Func.h" />
+    <ClInclude Include="St3_Larva.h" />
+    <ClInclude Include="St3_MineBullet.h" />
     <ClInclude Include="St3_MonCommon00.h" />
+    <ClInclude Include="St3_Patern.h" />
+    <ClInclude Include="St3_Patern01.h" />
+    <ClInclude Include="St3_Player.h" />
+    <ClInclude Include="St3_Skill.h" />
+    <ClInclude Include="St3_Skill01.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StageFour.h" />
     <ClInclude Include="StageOne.h" />
     <ClInclude Include="StageThree.h" />
+    <ClInclude Include="StageTwo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="SunBullet.h" />
     <ClInclude Include="Sunflower.h" />
+    <ClInclude Include="TurnBullet.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="WinApi.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AttackMonster.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BossMonster.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Click.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="FollowMonster.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GuideBullet.cpp" />
     <ClCompile Include="JustAttack.cpp" />
     <ClCompile Include="Dispenser.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterBullet.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Satellite.cpp" />
+    <ClCompile Include="SkillPlayer.cpp" />
+    <ClCompile Include="SrecwBullet.cpp" />
+    <ClCompile Include="St2_Mon_Lv1.cpp" />
+    <ClCompile Include="St2_Mon_Lv2.cpp" />
+    <ClCompile Include="St3_BossMonster.cpp" />
+    <ClCompile Include="St3_ChaseBullet.cpp" />
+    <ClCompile Include="St3_Chaser.cpp" />
+    <ClCompile Include="St3_CollisionMgr.cpp" />
+    <ClCompile Include="St3_DeathMotion.cpp" />
+    <ClCompile Include="St3_Drone.cpp" />
+    <ClCompile Include="St3_FireBullet.cpp" />
+    <ClCompile Include="St3_Larva.cpp" />
+    <ClCompile Include="St3_MineBullet.cpp" />
     <ClCompile Include="St3_MonCommon00.cpp" />
+    <ClCompile Include="St3_Patern.cpp" />
+    <ClCompile Include="St3_Patern01.cpp" />
+    <ClCompile Include="St3_Player.cpp" />
+    <ClCompile Include="St3_Skill.cpp" />
+    <ClCompile Include="St3_Skill01.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="StageFour.cpp" />
     <ClCompile Include="StageOne.cpp" />
     <ClCompile Include="StageThree.cpp" />
+    <ClCompile Include="StageTwo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -207,6 +258,7 @@
     </ClCompile>
     <ClCompile Include="SunBullet.cpp" />
     <ClCompile Include="Sunflower.cpp" />
+    <ClCompile Include="TurnBullet.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WinApi.cpp" />
   </ItemGroup>

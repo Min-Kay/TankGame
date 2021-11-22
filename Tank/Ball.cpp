@@ -32,10 +32,11 @@ void CBall::Late_Update(OBJLIST* _objlist)
 
 void CBall::Render(HDC hDC)
 {
-	ori = SelectObject(hDC, GetStockObject(DC_PEN));
-	SetDCPenColor(hDC, RGB(255, 0, 0));
+	ori = SelectObject(hDC, GetStockObject(DC_BRUSH));
+	SetDCBrushColor(hDC,RGB(255,0,0));
 	Ellipse(hDC,m_Body.left, m_Body.top, m_Body.right, m_Body.bottom);
 	SelectObject(hDC, ori);
+	DeleteObject(ori);
 }
 
 void CBall::Release(void)

@@ -80,13 +80,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 						game = new StageOne;
 						break;
 					case GAME::STAGE_TWO:
-						game = new StageOne;
+						game = new StageTwo;
 						break;
 					case GAME::STAGE_THREE:
-						game = new StageThree;
+						game = new StageFour;
 						break;
 					case GAME::STAGE_FOUR:
-						game = new StageFour;
+						game = new StageThree;
 						break;
 					}
 

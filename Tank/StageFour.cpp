@@ -22,7 +22,7 @@ StageFour::~StageFour()
 
 void StageFour::Initialize()
 {
-	Init_DefaultSetting(GAME::STAGE_FOUR);
+	Init_DefaultSetting(GAME::STAGE_THREE);
 	Init_ObjList(); 
 	Init_Cursor();
 	Init_Patterns(); 
@@ -34,7 +34,7 @@ void StageFour::Update()
 
 	Update_ObjList();
 
-	Cheat_Mode(); 
+	Cheat_Mode();
 
 	Update_Cursor();
 }
@@ -115,7 +115,7 @@ void StageFour::Init_Patterns()
 	patternB[2]->Set_Speed(1.0f);
 
 	patternC.reserve(1);
-	patternC.push_back(CAbstractFactory<CDispenser>::Create(100, 100, 10, 10));
+	patternC.push_back(CAbstractFactory<CDispenser>::Create(400, 100, 10, 10));
 
 	m_Patterns.push_back(patternA);
 	m_Patterns.push_back(patternB);

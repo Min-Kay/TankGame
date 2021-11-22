@@ -41,5 +41,8 @@ private:
 	int				m_distance;
 	int				m_spinCount;
 	float			m_Angle = 0.f ;
+
+
+	HGDIOBJ			ori = NULL;
 };
 

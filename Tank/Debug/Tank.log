@@ -1,5 +1,16 @@
-﻿  Stage.cpp
-  StageFour.cpp
-C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Tank\Wall.h(21,50): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  Tank.vcxproj -> C:\Users\admin\Desktop\수업\쥬신\TeamProject\first\Tank\Debug\Tank.exe
+﻿  StageThree.cpp
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3.h(13): warning C4005: 'St3_MON_COMMON_WIDTH': 매크로 재정의
+  c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3_monster.h(4): note: 'St3_MON_COMMON_WIDTH'의 이전 정의를 참조하십시오.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3.h(14): warning C4005: 'St3_MON_COMMON_HEIGHT': 매크로 재정의
+  c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3_monster.h(5): note: 'St3_MON_COMMON_HEIGHT'의 이전 정의를 참조하십시오.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3.h(16): warning C4005: 'St3_MON_COMMON_SPEED': 매크로 재정의
+  c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3_monster.h(7): note: 'St3_MON_COMMON_SPEED'의 이전 정의를 참조하십시오.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3.h(60): warning C4005: 'St3_MON_COMMON_RESPON_X': 매크로 재정의
+  c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3_monster.h(13): note: 'St3_MON_COMMON_RESPON_X'의 이전 정의를 참조하십시오.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3.h(61): warning C4005: 'St3_MON_COMMON_RESPON_Y': 매크로 재정의
+  c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\def_st3_monster.h(14): note: 'St3_MON_COMMON_RESPON_Y'의 이전 정의를 참조하십시오.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\stagethree.cpp(322): warning C4244: '초기화 중': 'const float'에서 'short'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\stagethree.cpp(323): warning C4838: 'const float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\administrator.jusin-20190611i\desktop\tankgame-master\tankgame ver 2.5\tank\stagethree.cpp(323): warning C4244: '초기화 중': 'const float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Tank.vcxproj -> C:\Users\Administrator.JUSIN-20190611I\Desktop\TankGame-master\TankGame ver 2.5\Debug\Tank.exe
+  Tank.vcxproj -> C:\Users\Administrator.JUSIN-20190611I\Desktop\TankGame-master\TankGame ver 2.5\Debug\Tank.pdb (Full PDB)

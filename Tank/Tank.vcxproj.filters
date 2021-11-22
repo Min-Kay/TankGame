@@ -100,6 +100,12 @@
     <Filter Include="소스 파일\02.Obj\05.Satellite\St4\Pet">
       <UniqueIdentifier>{efc44668-8464-43a3-bbc4-d3b30a0270fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\03.StageThree\St3">
+      <UniqueIdentifier>{bbde44fc-25af-49cb-8276-a2b4b532f015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Game\02.Stage\01.StageOne\St1">
+      <UniqueIdentifier>{e1eba5bb-7260-44c8-8541-31c3d906a398}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -207,6 +213,87 @@
     <ClInclude Include="Pet.h">
       <Filter>소스 파일\02.Obj\05.Satellite\St4\Pet</Filter>
     </ClInclude>
+    <ClInclude Include="St3_Skill01.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Skill.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Player.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Patern01.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Patern.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_BossMonster.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_ChaseBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Chaser.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_CollisionMgr.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_DeathMotion.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Drone.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_FireBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Func.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_Larva.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="St3_MineBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="Def_St3.h">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClInclude>
+    <ClInclude Include="SrecwBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackMonster.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="BossMonster.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowMonster.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="GuideBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillPlayer.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnBullet.h">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClInclude>
+    <ClInclude Include="StageTwo.h">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
+    </ClInclude>
+    <ClInclude Include="St2_Mon_Lv1.h">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
+    </ClInclude>
+    <ClInclude Include="St2_Mon_Lv2.h">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -277,6 +364,81 @@
     </ClCompile>
     <ClCompile Include="Pet.cpp">
       <Filter>소스 파일\02.Obj\05.Satellite\St4\Pet</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Skill01.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Skill.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Player.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Patern01.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Patern.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_BossMonster.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_ChaseBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Chaser.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_CollisionMgr.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_DeathMotion.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Drone.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_FireBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_Larva.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="St3_MineBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\03.StageThree\St3</Filter>
+    </ClCompile>
+    <ClCompile Include="SrecwBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackMonster.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="BossMonster.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowMonster.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="GuideBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillPlayer.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnBullet.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\01.StageOne\St1</Filter>
+    </ClCompile>
+    <ClCompile Include="StageTwo.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
+    </ClCompile>
+    <ClCompile Include="St2_Mon_Lv1.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
+    </ClCompile>
+    <ClCompile Include="St2_Mon_Lv2.cpp">
+      <Filter>소스 파일\01.Game\02.Stage\02.StageTwo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

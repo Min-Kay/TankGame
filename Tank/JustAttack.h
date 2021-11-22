@@ -22,6 +22,8 @@ public:
 	virtual void		Shoot();
 	virtual void		MoveFoward();
 	virtual void		NeedToCheckScreen();
+	float				Calc_Distance(POINT dest, POINT src);
+	void				Set_Angle_To_Target(POINT dest, POINT src);
 
 public:
 	const bool& 		Get_isNeed() const { return isNeed; };
@@ -32,8 +34,10 @@ public:
 protected:
 	OBJLIST*			m_BulletList = nullptr;
 	POINT				m_BarrelPos{};
-	float				m_Angle;
+	float				m_Angle = 0;
 	bool				isNeed;
+
+	CObj*				m_Target = nullptr;
 
 };
 

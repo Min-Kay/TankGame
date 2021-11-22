@@ -19,5 +19,6 @@ private:
 	DWORD			m_Tick; 
 
 	HGDIOBJ			ori = NULL;
+
 };
 

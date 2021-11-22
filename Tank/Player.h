@@ -19,7 +19,7 @@ public:
 	virtual void Render(HDC _hDC) override;
 	virtual void Release(void) override;
 
-private:
+protected:
 	void		Key_Input(void);
 	void		Create_Bullet(void);
 

@@ -14,5 +14,8 @@ public:
 	virtual void	Release(void) override;
 
 protected:
+	void			Render_Bullet(HDC hDC);
+
+protected:
 	void			Update_Locate(int _speed);
 };

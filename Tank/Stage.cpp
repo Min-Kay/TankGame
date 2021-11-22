@@ -27,8 +27,10 @@ void Stage::Release_Game() // 공통 릴리스 항목 처리 함수
 void Stage::Check_Collision() // 게임 공통 충돌처리 - Late_Update에 작성
 {
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::MONSTER]);
+	/*
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::PLAYER], m_ObjList[OBJID::MONSTER]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::PLAYER]);
+	*/
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::MISSILE]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::SATELLITE], m_ObjList[OBJID::MONSTER]);
 	CCollisionMgr::Collision_Rect(m_ObjList[OBJID::MISSILE], m_ObjList[OBJID::SATELLITE]);

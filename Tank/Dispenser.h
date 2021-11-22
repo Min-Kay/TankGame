@@ -50,6 +50,8 @@ private:
 	float				m_Angle; 
 	HBRUSH				m_brush = NULL;
 	HGDIOBJ				ori = NULL;
+	HGDIOBJ				pen = NULL;
+
 
 	DWORD				m_Tick;
 

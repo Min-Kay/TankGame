@@ -91,15 +91,26 @@ void CDispenser::Late_Update(OBJLIST* _objlist)
 
 void CDispenser::Render(HDC _hDC)
 {
-	ori = SelectObject(_hDC,GetStockObject(DC_PEN));
-	SetDCPenColor(_hDC, RGB(60, 60, 100));
+	ori = SelectObject(_hDC,GetStockObject(DC_BRUSH));
+
 	Rectangle(_hDC,m_Body.left,m_Body.top, m_Body.right, m_Body.bottom); // 본체
 
 	// 본체 사방 사각
+	if (m_Enrage)
+	{
+		SetDCBrushColor(_hDC,RGB(255,0,0));
+	}
+	else
+	{
+		SetDCBrushColor(_hDC, RGB(255, 255, 255));
+	}
+
 	Rectangle(_hDC, m_Body.right, m_Body.top, m_Body.right + m_Info.Width  * 0.5f, m_Body.bottom);
 	Rectangle(_hDC, m_Body.left - m_Info.Width * 0.5f, m_Body.top, m_Body.left, m_Body.bottom);
 	Rectangle(_hDC, m_Body.left, m_Body.top - m_Info.Width * 0.5f, m_Body.right, m_Body.top);
 	Rectangle(_hDC, m_Body.left, m_Body.bottom, m_Body.right, m_Body.bottom + m_Info.Width * 0.5f);
+
+	SelectObject(_hDC, ori);
 
 	// 사방 사각 잇는 선
 	MoveToEx(_hDC, m_Body.right + m_Info.Width * 0.5f, m_Body.top,nullptr);
@@ -133,40 +144,34 @@ void CDispenser::Render(HDC _hDC)
 
 	if (m_State == MONSTER::PUNCH && m_Ready )
 	{
+		pen = SelectObject(_hDC, GetStockObject(DC_PEN));
+
 		if (!m_LockOn && !m_Shoot)
 		{
 			SetDCPenColor(_hDC, RGB(255, 0, 0));
-			MoveToEx(_hDC, m_Info.X, m_Info.Y, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y);
-			Ellipse(_hDC, m_LockPoint.x - 10, m_LockPoint.y - 10, m_LockPoint.x + 10, m_LockPoint.y + 10);
-			MoveToEx(_hDC, m_LockPoint.x + 5, m_LockPoint.y, nullptr);
-			LineTo(_hDC, m_LockPoint.x + 15, m_LockPoint.y);
-			MoveToEx(_hDC, m_LockPoint.x - 5, m_LockPoint.y, nullptr);
-			LineTo(_hDC, m_LockPoint.x - 15, m_LockPoint.y);
-			MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y + 5, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y + 15);
-			MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y - 5, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y - 15);
 		}
 		else if (m_Shoot)
 		{
 			SetDCPenColor(_hDC, RGB(0, 255, 0));
-			MoveToEx(_hDC, m_Info.X, m_Info.Y, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y);
-			Ellipse(_hDC, m_LockPoint.x - 10, m_LockPoint.y - 10, m_LockPoint.x + 10, m_LockPoint.y + 10);
-			MoveToEx(_hDC, m_LockPoint.x + 5, m_LockPoint.y, nullptr);
-			LineTo(_hDC, m_LockPoint.x + 15, m_LockPoint.y);
-			MoveToEx(_hDC, m_LockPoint.x - 5, m_LockPoint.y, nullptr);
-			LineTo(_hDC, m_LockPoint.x - 15, m_LockPoint.y);
-			MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y + 5, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y + 15);
-			MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y - 5, nullptr);
-			LineTo(_hDC, m_LockPoint.x, m_LockPoint.y - 15);
 		}
 
+		MoveToEx(_hDC, m_Info.X, m_Info.Y, nullptr);
+		LineTo(_hDC, m_LockPoint.x, m_LockPoint.y);
+		Ellipse(_hDC, m_LockPoint.x - 10, m_LockPoint.y - 10, m_LockPoint.x + 10, m_LockPoint.y + 10);
+		MoveToEx(_hDC, m_LockPoint.x + 5, m_LockPoint.y, nullptr);
+		LineTo(_hDC, m_LockPoint.x + 15, m_LockPoint.y);
+		MoveToEx(_hDC, m_LockPoint.x - 5, m_LockPoint.y, nullptr);
+		LineTo(_hDC, m_LockPoint.x - 15, m_LockPoint.y);
+		MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y + 5, nullptr);
+		LineTo(_hDC, m_LockPoint.x, m_LockPoint.y + 15);
+		MoveToEx(_hDC, m_LockPoint.x, m_LockPoint.y - 5, nullptr);
+		LineTo(_hDC, m_LockPoint.x, m_LockPoint.y - 15);
+		SelectObject(_hDC,pen);
+		DeleteObject(pen);
 	}
 
 	SelectObject(_hDC, ori);
+	DeleteObject(ori);
 }
 
 void CDispenser::Release(void)
@@ -213,8 +218,16 @@ void CDispenser::StateMachine()
 
 void CDispenser::Idle()
 {
-	m_PunchGauge += rand() % 5;
-	m_BilliardGauge += rand() % 5;
+	if (m_Enrage)
+	{
+		m_PunchGauge += rand() % 20;
+		m_BilliardGauge += rand() % 20;
+	}
+	else
+	{
+		m_PunchGauge += rand() % 5;
+		m_BilliardGauge += rand() % 5;
+	}
 
 	if (m_PunchGauge > 1000)
 	{
@@ -286,9 +299,18 @@ void CDispenser::Billiard()
 
 void CDispenser::Groggy()
 {
-	if (m_Tick + m_GroggyCoolTime < GetTickCount())
-		m_State = MONSTER::IDLE;
+	if (m_Enrage)
+	{
+		if (m_Tick + (m_GroggyCoolTime * 0.5f) < GetTickCount())
+			m_State = MONSTER::IDLE;
+	}
+	else
+	{
+		if (m_Tick + m_GroggyCoolTime < GetTickCount())
+			m_State = MONSTER::IDLE;
+	}
 }
+	
 
 void CDispenser::Ready_To_Play()
 {
